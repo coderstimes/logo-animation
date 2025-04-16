@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Necessary Block Logo Animation </title>
+	<style>
+		*{margin: 0;padding: 0;}
+		.wrapper{
+			width: 508px;
+			height: 487px;
+			position: relative;
+		}
+		.wrapper .block{
+			position: absolute;
+		}
+		.first_n{
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: fit-content;
+			clip-path: polygon(34% 0, 100% 64%, 94% 100%, 41% 42%, 41% 100%, 0 100%, 0 0);
+			animation: morph 3s ease-in-out;
+		}
+		@keyframes morph {
+	      0% {
+	        clip-path: polygon(0 100%, 41% 100%, 41% 100%, 41% 100%, 41% 100%, 41% 100%, 0 100%);
+	      }
+	      50%{
+	      	clip-path: polygon(0 41%, 41% 41%, 41% 41%, 41% 41%, 41% 45%, 41% 100%, 0 100%);
+	      }
+	      80%{
+	      	clip-path: polygon(0 0%, 40% 0%, 40% 0%, 40% 51%, 40% 41%, 41% 100%, 0 100%);
+	      }
+	      100% {
+	        clip-path: polygon(0 0%, 40% 0%, 100% 68%, 100% 100%, 40% 42%, 46% 102%, 1% 120%)
+	      }
+	    }
+		.first_block{
+			left: 350px;
+			top: 312px;
+			animation: movefirst 1.5s;
+			animation-delay: 2.98s;
+			animation-timing-function: ease-in;
+			opacity: 0;
+		}
+		@keyframes movefirst {
+		  0% { transform: translateX(-150px) translateY(-100px) scale(.3); opacity: .01; }
+		  5%{transform:translateX(-115px) translateY(-30px) scale(.4) ;opacity:1}
+		  15%{transform: translateX(-90px) translateY(-5px) scale(.5);}
+		  60%{transform: translateY(0px)v scale(.8);}
+		  100% { transform: translateX(0px) translateY(0px) scale(1.0);opacity:1 }
+		}
+
+		.second_block{
+			left: 283px;
+			top: 162px;
+			animation: movesecond 1.5s;
+			animation-delay: 4.3s;
+			animation-timing-function: ease-in;
+			opacity: 0;
+		}
+
+		@keyframes movesecond {
+		  0% { transform: translateX(40px) translateY(150px) scale(.85); opacity: .01 }
+		  5%{opacity:1}
+		  65%{transform: translateX(40px) translateY(0px) scale(1)}
+		  100% {transform: translateX(0px) translateY(0px) scale(1);opacity:1 }
+		}
+
+		.third_block{
+			left: 332px;
+			top: 0px;
+			animation: movethird 1.5s;
+			animation-delay: 5.8s;
+			animation-timing-function: ease-in;
+			opacity: 0;
+		}
+
+		@keyframes movethird {
+		  0% { transform: translateX(-40px) translateY(150px) scale(.85); opacity: .01 }
+		  5%{opacity:1}
+		  65%{transform: translateX(40px) translateY(0px) scale(1)}
+		  100% {transform: translateX(0px) translateY(0px) scale(1);opacity:1 }
+		}
+		.fourth_block{
+			left: 173px;
+			top: 12px;
+			animation: movefourth 1.5s;
+			animation-delay: 7.3s;
+			animation-timing-function: ease-in;
+			opacity: 0;
+		}
+
+		@keyframes movefourth {
+		  0% { transform: translateX(145px) scale(.8); opacity: .01 }
+		  5%{opacity:1}
+		  65%{transform: translateX(40px) scale(1)}
+		  100% {transform: translateX(0px) scale(1);opacity:1 }
+		}
+		
+		.bgimg{
+			left: 0;
+			top: 0;
+			opacity: .1;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="wrapper">
+		<img class="block bgimg" src="bg.png">
+		<img class="first_n" src="1.png" alt="">
+		<img class="block first_block" src="2.png" alt="">
+		<img class="block second_block" src="3.png" alt="">
+		<img class="block third_block" src="4.png" alt="">
+		<img class="block fourth_block" src="5.png" alt="">
+	</div>
+
+	<script>
+		setTimeout(function() {
+			document.querySelector(".first_block").style.opacity="1";
+			setTimeout(function() {
+				document.querySelector(".second_block").style.opacity="1";
+				setTimeout(function() {
+					document.querySelector(".third_block").style.opacity="1";
+					setTimeout(function() {
+						document.querySelector(".fourth_block").style.opacity="1";
+					}, 1400);
+				}, 1500);
+			}, 1400);
+		}, 3000);
+	</script>
+</body>
+</html>
